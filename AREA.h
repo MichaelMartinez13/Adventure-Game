@@ -1,8 +1,9 @@
+//Area class written by JS, 02/27/21.
+
 #ifndef AREA_H
 #define AREA_H
-#include <map>
+#include <string>
 using std::string;
-using std::map;
 
 class area
 {

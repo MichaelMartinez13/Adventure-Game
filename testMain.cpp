@@ -1,14 +1,14 @@
 #include "AREA.cpp"
 #include <iostream>
-#include <iomanip>
 using std::string;
 
 int main()
 {
     area startRoom("startRoom", 0, 0);
-    startRoom.setAreaDescription("This place is dark, "
-    "but you can see faint outlines of furniture, including "
-    "an unlit candle.");
+    startRoom.setAreaDescription(
+    "You're standing in the entry hall. There's not much in here\n"
+    "- some candelabras, a rug, a hell of a lot of cobwebs."
+    );
     startRoom.enterArea();
     return 0;
 }
