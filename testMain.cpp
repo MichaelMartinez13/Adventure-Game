@@ -1,4 +1,5 @@
 #include "AREA.cpp"
+#include "PLAYER.cpp"
 #include <iostream>
 using std::string;
 
