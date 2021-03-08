@@ -34,3 +34,4 @@
 # Annoying files that keep cropping up
 *.DS_Store
 *.json
+*.vscode
