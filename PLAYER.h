@@ -22,6 +22,7 @@ class player
     //depravity::cultist. maxHealth is determined by class: mage/cultist 20,
     //rogue 30, warrior 40.
     int playerStats[5]; //Stores the player's stats.
+    friend class area;
 
     public:
     void setPlayerName(string); //Sets the player's name.

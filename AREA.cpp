@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "AREA.h"
+#include "PLAYER.cpp"
 using std::cout; using std::cin; using std::string; using std::endl;
 
 //Displays description text for the given area. Could be used with a
@@ -13,9 +14,11 @@ void area::displayArea()
 
 //Displays the area description, moves the player, and displays the
 //area's exits. Well, 1/3 ain't bad.
-void area::enterArea()
+void area::enterArea(player p1)
 {
     area::displayArea();
+    p1.playerLocationX = areaLocationX;
+    p1.playerLocationY = areaLocationY;
 }
 
 //This will depend on principles I don't fully understand yet. I
@@ -40,4 +43,5 @@ area::area(string tag, int X, int Y)
     area::areaTag = tag;
     area::areaLocationX = X;
     area::areaLocationY = Y;
+    area::areaMap[X][Y] = this;
 }
