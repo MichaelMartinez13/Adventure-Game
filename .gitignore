@@ -31,5 +31,6 @@
 *.out
 *.app
 
-# Annoying file that keeps cropping up
+# Annoying files that keep cropping up
 *.DS_Store
+*.json
