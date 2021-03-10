@@ -31,13 +31,13 @@ void area::findExits()
     {
         cout << "To the south, there is the " << areaMap[areaLocationX][areaLocationY + 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX - 1][areaLocationY]->areaTag != "")
-    {
-        cout << "To the east, there is the " << areaMap[areaLocationX - 1][areaLocationY]->areaName << "." << endl;
-    }
     if (areaMap[areaLocationX + 1][areaLocationY]->areaTag != "")
     {
-        cout << "To the west, there is the " << areaMap[areaLocationX + 1][areaLocationY]->areaName << "." << endl;
+        cout << "To the east, there is the " << areaMap[areaLocationX + 1][areaLocationY]->areaName << "." << endl;
+    }
+    if (areaMap[areaLocationX - 1][areaLocationY]->areaTag != "")
+    {
+        cout << "To the west, there is the " << areaMap[areaLocationX - 1][areaLocationY]->areaName << "." << endl;
     }
 }
 
@@ -60,10 +60,10 @@ void area::goDirection(eDir direction, player p1)
         areaMap[areaLocationX][areaLocationY + 1]->enterArea(p1);
         break;
         case east:
-        areaMap[areaLocationX - 1][areaLocationY]->enterArea(p1);
+        areaMap[areaLocationX + 1][areaLocationY]->enterArea(p1);
         break;
         case west:
-        areaMap[areaLocationX + 1][areaLocationY]->enterArea(p1);
+        areaMap[areaLocationX - 1][areaLocationY]->enterArea(p1);
         break;
     }
 }
@@ -75,5 +75,12 @@ area::area(string tag, int X, int Y, string name)
     areaLocationX = X;
     areaLocationY = Y;
     areaMap[X][Y] = this;
+    areaName = name;
+}
+
+//Constructor for areas that don't fit on the map.
+area::area(string tag, string name)
+{
+    areaTag = tag;
     areaName = name;
 }

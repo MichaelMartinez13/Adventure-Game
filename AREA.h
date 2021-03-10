@@ -20,6 +20,7 @@ class area
 
     public:
     area(string, int, int, string); //Basic constructor.
+    area(string, string); //Constructor for areas that don't fit on the map.
     void displayArea(); //Displays the area description.
     void findExits(); //Finds any exits and outputs their locations.
     void enterArea(player); //Moves the player to a given area.
