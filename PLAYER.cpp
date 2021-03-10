@@ -10,7 +10,7 @@ void player::setPlayerName(std::string enteredName)
     playerName = enteredName;
 }
 
-//Sets player's job. Call upon creation and when the player picks
+//Sets player's job. Call upon creation (value 0 for Student) and when the player picks
 //up their starting weapon.
 void player::setPlayerJob(eJob weapon)
 {

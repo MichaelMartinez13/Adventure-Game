@@ -16,13 +16,15 @@ class area
     int areaLocationY; //Room's location along the Y/north-south axis.
     string areaDescription; //What is displayed when entering or looking around the room.
     string areaName; //The room's official name.
+    enum eDir {north = 1, south = 2, east = 3, west = 4}; //Directions for move function.
 
     public:
     area(string, int, int, string); //Basic constructor.
     void displayArea(); //Displays the area description.
     void findExits(); //Finds any exits and outputs their locations.
-    void enterArea(player p1); //Moves the player to a given area.
+    void enterArea(player); //Moves the player to a given area.
     void setAreaDescription(string); //Sets the area description.
+    void goDirection(eDir, player); //Moves the player in a given direction.
 };
 
 #endif

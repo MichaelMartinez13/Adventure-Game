@@ -42,10 +42,30 @@ void area::findExits()
 }
 
 //Sets the description of the area. Call upon area creation and if you
-//change something about the room (besides picking something up, natch.)
+//change something about the room.
 void area::setAreaDescription(string description)
 {
     areaDescription = description;
+}
+
+//Moves the player in a given direction.
+void area::goDirection(eDir direction, player p1)
+{
+    switch (direction)
+    {
+        case north:
+        areaMap[areaLocationX][areaLocationY - 1]->enterArea(p1);
+        break;
+        case south:
+        areaMap[areaLocationX][areaLocationY + 1]->enterArea(p1);
+        break;
+        case east:
+        areaMap[areaLocationX - 1][areaLocationY]->enterArea(p1);
+        break;
+        case west:
+        areaMap[areaLocationX + 1][areaLocationY]->enterArea(p1);
+        break;
+    }
 }
 
 //Basic constructor for an area.
