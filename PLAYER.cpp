@@ -4,70 +4,79 @@
 #include "PLAYER.h"
 using std::cout; using std::cin; using std::string; using std::endl;
 
-    void player::setPlayerName(std::string enteredName)
-    {
-        playerName = enteredName;
-    }
+//Sets player name. Call upon creation and forget about it.
+void player::setPlayerName(std::string enteredName)
+{
+    playerName = enteredName;
+}
 
-    void player::setPlayerJob(eJob weapon)
-    {
-        playerJob = weapon;
-    }
+//Sets player's job. Call upon creation and when the player picks
+//up their starting weapon.
+void player::setPlayerJob(eJob weapon)
+{
+    playerJob = weapon;
+}
 
-    void player::hurtPlayer(int damage)
+//Causes HP damage.
+void player::hurtPlayer(int damage)
+{
+    playerHealth -= damage;
+    if (playerHealth < 0) //If damage exceeds HP, die
     {
-        playerHealth -= damage;
-        if (playerHealth < 0)
-        {
-            player::killPlayer();
-        }
+        player::killPlayer();
     }
+}
 
-    void player::healPlayer(int healing)
+//Heals HP damage.
+void player::healPlayer(int healing)
+{
+    if (playerHealth + healing <= playerStats[maxHealth]) //Check if overheal
     {
-        if (playerHealth + healing <= playerStats[maxHealth])
-        {
-            playerHealth += healing;
-        }
-        else
-        {
-            playerHealth = playerStats[maxHealth];
-        }
+        playerHealth += healing;
     }
-
-    void player::corruptPlayer(int damage)
+    else
     {
-        playerCorruption += damage;
-        if (playerCorruption >= 13)
-        {
-            player::badEnd();
-        }
+        playerHealth = playerStats[maxHealth]; //No overheal.
     }
+}
 
-    void player::purifyPlayer(int healing)
+//Causes corruption damage.
+void player::corruptPlayer(int damage)
+{
+    playerCorruption += damage;
+    if (playerCorruption >= 13) //Lucky 13 is the threshold. Over 13? Die.
     {
-        if (playerCorruption - healing >= 0)
-        {
-            playerCorruption = 0;
-        }
-        else
-        {
-            playerCorruption -= healing;
-        }
+        player::badEnd();
     }
+}
 
-    void player::modPlayerStat(eStat stat, int modification)
+//Cures corruption damage.
+void player::purifyPlayer(int healing)
+{
+    if (playerCorruption - healing >= 0) //No negative corruption.
     {
-        playerStats[stat] += modification;
+        playerCorruption = 0;
     }
-
-    void player::killPlayer()
+    else
     {
-        cout << "Congratulations! You died." << endl;
+        playerCorruption -= healing;
     }
+}
 
-    void player::badEnd()
-    {
-        cout << "You have suffered a fate worse than death." << endl;
-    }
+//Mods stats; can be positive or negative.
+void player::modPlayerStat(eStat stat, int modification)
+{
+    playerStats[stat] += modification;
+}
 
+//This will be expanded to account for what killed you. For now, Dark Souls style.
+void player::killPlayer()
+{
+    cout << "Congratulations! You died." << endl;
+}
+
+//This will be expanded to account for what corrupted you.
+void player::badEnd()
+{
+    cout << "You have suffered a fate worse than death." << endl;
+}
