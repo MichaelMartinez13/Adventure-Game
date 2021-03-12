@@ -5,19 +5,20 @@
 #include <string>
 using std::string;
 
+enum eJob {student = 0, mage = 1, warrior = 2, rogue = 3, cultist = 4};
+enum eStat {maxHealth = 0, knowledge = 1, might = 2, trickery = 3, depravity = 4};
+
 class player
 {
     private:
     string playerName; //Entered by player at beginning of game.
     int playerLocationX; //Character's location along the X-axis.
     int playerLocationY; //Character's location along the Y-axis.
-    enum eJob {student = 0, mage = 1, warrior = 2, rogue = 3, cultist = 4};
     int playerJob; //The character's class.
     int playerHealth; //The character's health meter. 
     int playerCorruption; //The character's corruption meter. This serves
     //as a sort of secondary health bar, related less to physical damage
     //and more to mental or moral harm. Starts at 0, goes to 13.
-    enum eStat {maxHealth = 0, knowledge = 1, might = 2, trickery = 3, depravity = 4};
     //The player's main stats: knowledge::mage, might::warrior, trickery::rogue,
     //depravity::cultist. maxHealth is determined by class: mage/cultist 20,
     //rogue 30, warrior 40.

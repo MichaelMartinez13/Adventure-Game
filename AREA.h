@@ -6,6 +6,8 @@
 #include "PLAYER.cpp"
 using std::string;
 
+enum eDir {north = 1, south = 2, east = 3, west = 4}; //Directions for move function.
+
 class area
 {
     private:
@@ -16,7 +18,6 @@ class area
     int areaLocationY; //Room's location along the Y/north-south axis.
     string areaDescription; //What is displayed when entering or looking around the room.
     string areaName; //The room's official name.
-    enum eDir {north = 1, south = 2, east = 3, west = 4}; //Directions for move function.
 
     public:
     area(string, int, int, string); //Basic constructor.
