@@ -6,9 +6,9 @@
 #include "PLAYER.cpp"
 using std::string;
 
-//Using unscoped enum instead of enum class so enum values can index arrays
-//without using static_cast.
-enum eDir {north = 1, south = 2, east = 3, west = 4}; //Directions for move function.
+//Directions for move function. Using unscoped enum instead of enum class so enum values
+//can index arrays without using static_cast.
+enum eDir {north = 1, south = 2, east = 3, west = 4};
 
 class area
 {
