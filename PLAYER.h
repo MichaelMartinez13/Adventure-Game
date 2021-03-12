@@ -5,8 +5,13 @@
 #include <string>
 using std::string;
 
+//Using unscoped enum instead of enum class so enum values can index arrays
+//without using static_cast. The correspondence between the classes and relevant stats
 enum eJob {student = 0, mage = 1, warrior = 2, rogue = 3, cultist = 4};
 enum eStat {maxHealth = 0, knowledge = 1, might = 2, trickery = 3, depravity = 4};
+//The player's main stats: knowledge::mage, might::warrior, trickery::rogue,
+//depravity::cultist. maxHealth is determined by class: mage/cultist/student 20,
+//rogue 30, warrior 40.
 
 class player
 {
@@ -19,9 +24,6 @@ class player
     int playerCorruption; //The character's corruption meter. This serves
     //as a sort of secondary health bar, related less to physical damage
     //and more to mental or moral harm. Starts at 0, goes to 13.
-    //The player's main stats: knowledge::mage, might::warrior, trickery::rogue,
-    //depravity::cultist. maxHealth is determined by class: mage/cultist 20,
-    //rogue 30, warrior 40.
     int playerStats[5]; //Stores the player's stats.
     friend class area;
 
