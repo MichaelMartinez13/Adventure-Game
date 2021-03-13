@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "AREA.h"
-#include "PLAYER.cpp"
+#include "PARSER.cpp"
 using std::cout; using std::cin; using std::string; using std::endl;
 
 //Displays description text for the given area. Could be used with a
@@ -51,7 +51,7 @@ void area::setAreaDescription(string description)
 }
 
 //Moves the player in a given direction.
-void area::goDirection(eDir direction)
+void area::goDirection(eVerb direction)
 {
     switch (direction)
     {
@@ -85,4 +85,9 @@ area::area(string tag, string name)
 {
     areaTag = tag;
     areaName = name;
+}
+
+area* area::getArea(int X, int Y)
+{
+    return areaMap[X][Y];
 }

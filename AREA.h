@@ -6,10 +6,6 @@
 #include "PLAYER.h"
 using std::string;
 
-//Directions for move function. Using unscoped enum instead of enum class so enum values
-//can index arrays without using static_cast.
-enum eDir {north = 1, south = 2, east = 3, west = 4};
-
 class area
 {
     private:
@@ -22,13 +18,14 @@ class area
     string areaName; //The room's official name.
 
     public:
+    static area* getArea(int, int); //Returns an area's pointer from areaMap.
     area(string, int, int, string); //Basic constructor.
     area(string, string); //Constructor for areas that don't fit on the map.
     void displayArea(); //Displays the area description.
     void findExits(); //Finds any exits and outputs their locations.
     void enterArea(); //Moves the player to a given area.
     void setAreaDescription(string); //Sets the area description.
-    void goDirection(eDir); //Moves the player in a given direction.
+    void goDirection(eVerb); //Moves the player in a given direction.
 };
 
 #endif
