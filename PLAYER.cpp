@@ -80,3 +80,13 @@ void player::badEnd()
 {
     cout << "You have suffered a fate worse than death." << endl;
 }
+
+//Call this in order to refer to the player.
+player* player::getPlayer()
+{
+    if (!p1)
+    {
+        p1 = new player;
+    }
+    return p1;
+}

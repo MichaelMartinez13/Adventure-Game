@@ -17,6 +17,9 @@ enum eStat {maxHealth = 0, knowledge = 1, might = 2, trickery = 3, depravity = 4
 class player
 {
     private:
+    static player* p1; //Making this class a singleton so the member can be called
+    //from anywhere. 
+    player(); //Private constructor for the singleton; prevents erroneous construction.
     string playerName; //Entered by player at beginning of game.
     int playerLocationX; //Character's location along the X-axis.
     int playerLocationY; //Character's location along the Y-axis.
@@ -29,6 +32,7 @@ class player
     friend class area;
 
     public:
+    static player* getPlayer(); //Use this to point to p1, the player.
     void setPlayerName(string); //Sets the player's name.
     void setPlayerJob(eJob); //Sets the player's job when they select their
     //starting weapon.

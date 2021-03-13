@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "AREA.h"
+#include "PLAYER.cpp"
 using std::cout; using std::cin; using std::string; using std::endl;
 
 //Displays description text for the given area. Could be used with a
@@ -12,11 +13,12 @@ void area::displayArea()
 }
 
 //Displays the area description, moves the player, and displays the area's exits.
-void area::enterArea(player p1)
+void area::enterArea()
 {
     displayArea();
-    p1.playerLocationX = areaLocationX;
-    p1.playerLocationY = areaLocationY;
+    player* p1 = player::getPlayer();
+    p1->playerLocationX = areaLocationX;
+    p1->playerLocationY = areaLocationY;
     findExits();
 }
 
@@ -49,21 +51,21 @@ void area::setAreaDescription(string description)
 }
 
 //Moves the player in a given direction.
-void area::goDirection(eDir direction, player p1)
+void area::goDirection(eDir direction)
 {
     switch (direction)
     {
         case north:
-        areaMap[areaLocationX][areaLocationY - 1]->enterArea(p1);
+        areaMap[areaLocationX][areaLocationY - 1]->enterArea();
         break;
         case south:
-        areaMap[areaLocationX][areaLocationY + 1]->enterArea(p1);
+        areaMap[areaLocationX][areaLocationY + 1]->enterArea();
         break;
         case east:
-        areaMap[areaLocationX + 1][areaLocationY]->enterArea(p1);
+        areaMap[areaLocationX + 1][areaLocationY]->enterArea();
         break;
         case west:
-        areaMap[areaLocationX - 1][areaLocationY]->enterArea(p1);
+        areaMap[areaLocationX - 1][areaLocationY]->enterArea();
         break;
     }
 }

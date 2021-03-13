@@ -3,7 +3,7 @@
 #ifndef AREA_H
 #define AREA_H
 #include <string>
-#include "PLAYER.cpp"
+#include "PLAYER.h"
 using std::string;
 
 //Directions for move function. Using unscoped enum instead of enum class so enum values
@@ -26,9 +26,9 @@ class area
     area(string, string); //Constructor for areas that don't fit on the map.
     void displayArea(); //Displays the area description.
     void findExits(); //Finds any exits and outputs their locations.
-    void enterArea(player); //Moves the player to a given area.
+    void enterArea(); //Moves the player to a given area.
     void setAreaDescription(string); //Sets the area description.
-    void goDirection(eDir, player); //Moves the player in a given direction.
+    void goDirection(eDir); //Moves the player in a given direction.
 };
 
 #endif
