@@ -17,13 +17,13 @@ enum eStat {maxHealth = 0, knowledge = 1, might = 2, trickery = 3, depravity = 4
 class player
 {
     private:
-    static player* p1; //Making this class a singleton so the member can be called
-    //from anywhere. 
-    player(); //Private constructor for the singleton; prevents erroneous construction.
+    static player* p1; //Making this class a singleton so the instance can be called
+    //from anywhere.
+    player(); //Private constructor for the singleton; prevents erroneous reconstruction.
     string playerName; //Entered by player at beginning of game.
     int playerLocationX; //Character's location along the X-axis.
     int playerLocationY; //Character's location along the Y-axis.
-    int playerJob; //The character's class.
+    eJob playerJob; //The character's class.
     int playerHealth; //The character's health meter. 
     int playerCorruption; //The character's corruption meter. This serves
     //as a sort of secondary health bar, related less to physical damage
