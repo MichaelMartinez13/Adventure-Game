@@ -31,12 +31,12 @@ enum eVerb
 std::map<string, eVerb> makeVerbMap()
 {
     std::map<string, eVerb> verbMap;
-    verbMap["look"] = look; verbMap["look around"] = look;
+    verbMap["look"] = look; verbMap["lookaround"] = look;
     verbMap["north"] = north; verbMap["n"] = north;
     verbMap["south"] = south; verbMap["s"] = south;
     verbMap["east"] = east; verbMap["e"] = east;
     verbMap["west"] = west; verbMap["w"] = west;
-    verbMap["take"] = take; verbMap["get"] = take; verbMap["steal"] = take;
+    verbMap["take"] = take; verbMap["get"] = take; verbMap["pickup"] = take;
 }
 
 //For some reason you have to make a constructor function and then call it, you can't
@@ -56,6 +56,13 @@ bool parseInput(vector<string> sentence)
         sentence[i] == "a" || sentence[i] == "an")
         {
             sentence.erase(sentence.begin() + i);
+        }
+        else if ((sentence[i] == "look" && sentence[i+1] == "around" ) || 
+        (sentence[i] == "pick" && sentence[i+1] == "up"))
+        {
+            sentence[i] += sentence[i+1];
+            sentence.erase(sentence.begin() + i + 1);
+            i++;
         }
         else
         {
