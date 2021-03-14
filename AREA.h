@@ -19,6 +19,7 @@ class area
 
     public:
     static area* getArea(int, int); //Returns an area's pointer from areaMap.
+    static area* getCurrentArea(); //Returns the pointer of the current area.
     area(string, int, int, string); //Basic constructor.
     area(string, string); //Constructor for areas that don't fit on the map.
     void displayArea(); //Displays the area description.

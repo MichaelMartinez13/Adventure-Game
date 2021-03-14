@@ -91,3 +91,9 @@ area* area::getArea(int X, int Y)
 {
     return areaMap[X][Y];
 }
+
+area* area::getCurrentArea()
+{
+    player* p1 = player::getPlayer();
+    return areaMap[(p1->getPlayerX()][p1->getPlayerY()];
+}
