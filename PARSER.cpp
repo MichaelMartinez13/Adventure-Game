@@ -2,14 +2,7 @@
 
 #ifndef PARSER_CPP
 #define PARSER_CPP
-#include <locale>
-#include <string>
-#include <iostream>
-#include <vector>
-#include <map>
-#include "AREA.h"
-#include "PLAYER.h"
-#include "ENUMS.h"
+#include "PARSER.h"
 using std::cout; using std::cin; using std::string; using std::endl; using std::vector;
 
 //Converts inputs to lowercase for case-insensitive parsing.

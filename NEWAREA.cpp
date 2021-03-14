@@ -1,6 +1,7 @@
 //Instantiates areas at the beginning of the game so the main remains tidy.
-
-#include "AREA.h"
+#ifndef NEWAREA_CPP
+#define NEWAREA_CPP
+#include "NEWAREA.h"
 
 void areaSetup()
 {
@@ -30,3 +31,5 @@ void areaSetup()
     "and books, except for one tome sitting proudly on a pedestal."
     );
 }
+
+#endif

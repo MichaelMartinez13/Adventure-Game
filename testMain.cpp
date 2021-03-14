@@ -1,7 +1,7 @@
 #include "AREA.h"
 #include "PLAYER.h"
-#include "PARSER.cpp"
-#include "NEWAREA.cpp"
+#include "PARSER.h"
+#include "NEWAREA.h"
 
 int main()
 {
