@@ -31,6 +31,7 @@ std::map<string, eVerb> makeVerbMap()
     verbMap["east"] = east; verbMap["e"] = east;
     verbMap["west"] = west; verbMap["w"] = west;
     verbMap["take"] = take; verbMap["get"] = take; verbMap["pickup"] = take;
+    return verbMap;
 }
 
 //For some reason you have to make a constructor function and then call it, you can't
