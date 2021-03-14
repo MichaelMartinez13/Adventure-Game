@@ -3,7 +3,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <string>
-#include "ENUMS.cpp"
+#include "ENUMS.h"
 using std::string;
 
 class player

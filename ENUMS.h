@@ -1,5 +1,5 @@
-#ifndef ENUMS_CPP
-#define ENUMS_CPP
+#ifndef ENUMS_H
+#define ENUMS_H
 
 //This file stores various enums. Using unscoped enum instead of enum class so enum values
 //can index arrays without using static_cast.

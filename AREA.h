@@ -4,7 +4,7 @@
 #define AREA_H
 #include <string>
 #include "PLAYER.h"
-#include "ENUMS.cpp"
+#include "ENUMS.h"
 using std::string;
 
 class area

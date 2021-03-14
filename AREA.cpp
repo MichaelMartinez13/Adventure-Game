@@ -2,8 +2,10 @@
 
 #include <iostream>
 #include "AREA.h"
-#include "PARSER.cpp"
 using std::cout; using std::cin; using std::string; using std::endl;
+
+//Defining here to avoid linker error.
+area* area::areaMap[5][5];
 
 //Displays description text for the given area. Could be used with a
 //>look command if we end up implementing a parser.

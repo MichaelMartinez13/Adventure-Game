@@ -9,7 +9,7 @@
 #include <map>
 #include "AREA.h"
 #include "PLAYER.h"
-#include "ENUMS.cpp"
+#include "ENUMS.h"
 using std::cout; using std::cin; using std::string; using std::endl; using std::vector;
 
 //Converts inputs to lowercase for case-insensitive parsing.
