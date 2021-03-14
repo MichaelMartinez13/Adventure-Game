@@ -4,6 +4,7 @@
 #define AREA_H
 #include <string>
 #include "PLAYER.h"
+#include "PARSER.cpp"
 using std::string;
 
 class area
