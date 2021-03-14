@@ -5,10 +5,9 @@
 using std::cout; using std::cin; using std::string; using std::endl;
 
 //Defining here to avoid linker error.
-area* area::areaMap[5][5];
+area* area::areaMap[5][5] = {NULL};
 
-//Displays description text for the given area. Could be used with a
-//>look command if we end up implementing a parser.
+//Displays description text for the given area.
 void area::displayArea()
 {
     cout << areaDescription << endl;
@@ -27,19 +26,19 @@ void area::enterArea()
 //Basic coordinate math on the 2D array allows us to determine if a room has exits.
 void area::findExits()
 {
-    if (areaMap[areaLocationX][areaLocationY - 1]->areaName != "") //is the adjacent area instantiated?
+    if (areaMap[areaLocationX][areaLocationY - 1]!=NULL) //is the adjacent area instantiated?
     {
         cout << "To the north, there is the " << areaMap[areaLocationX][areaLocationY - 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX][areaLocationY + 1]->areaName != "")
+    if (areaMap[areaLocationX][areaLocationY + 1]!=NULL)
     {
         cout << "To the south, there is the " << areaMap[areaLocationX][areaLocationY + 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX + 1][areaLocationY]->areaName != "")
+    if (areaMap[areaLocationX + 1][areaLocationY]!=NULL)
     {
         cout << "To the east, there is the " << areaMap[areaLocationX + 1][areaLocationY]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX - 1][areaLocationY]->areaName != "")
+    if (areaMap[areaLocationX - 1][areaLocationY]!=NULL)
     {
         cout << "To the west, there is the " << areaMap[areaLocationX - 1][areaLocationY]->areaName << "." << endl;
     }

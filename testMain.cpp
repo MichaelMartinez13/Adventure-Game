@@ -6,7 +6,8 @@
 int main()
 {
     areaSetup();
-    area* startRoom = area::getArea(3, 3);
+    player* p1 = player::getPlayer();
+    area* startRoom = area::getArea(3, 4);
     startRoom->enterArea();
     while (true)
     {
