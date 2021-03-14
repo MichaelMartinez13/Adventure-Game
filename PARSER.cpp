@@ -9,6 +9,7 @@
 #include <map>
 #include "AREA.h"
 #include "PLAYER.h"
+#include "ENUMS.cpp"
 using std::cout; using std::cin; using std::string; using std::endl; using std::vector;
 
 //Converts inputs to lowercase for case-insensitive parsing.
@@ -18,15 +19,6 @@ string lc(string s)
         s[i] = tolower(s[i]);
     return s;
 }
-
-//Enum to store verbs. Will be added to as we add more things to do. Cardinal directions are
-//totally verbs, guys.
-enum eVerb
-{
-    look = 0,
-    north = 1, south = 2, east = 3, west = 4,
-    take = 5
-};
 
 //Creates the verbMap used in the parser proper to parse the strings. Synonyms are
 //defined here.
@@ -45,7 +37,7 @@ std::map<string, eVerb> makeVerbMap()
 //just construct a map out-of-line. C++, why.
 std::map<string, eVerb> verbMap = makeVerbMap();
 
-//The actual main event. Takes words from userInput(), strips out filler words, and tells
+//The main event. Takes words from userInput(), strips out filler words, and tells
 //the system what to do with the words that are left (which should ideally be a single
 //verb and an optional noun). Again, will be added to as we add things to do.
 bool parseInput(vector<string> sentence)

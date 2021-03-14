@@ -3,16 +3,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <string>
+#include "ENUMS.cpp"
 using std::string;
-
-//Using unscoped enum instead of enum class so enum values can index arrays
-//without using static_cast. The correspondence between the jobs and their relevant stats
-//is deliberate, in case we want to use unscoped enum equality in some capacity.
-enum eJob {student = 0, mage = 1, warrior = 2, rogue = 3, cultist = 4};
-enum eStat {maxHealth = 0, knowledge = 1, might = 2, trickery = 3, depravity = 4};
-//The player's main stats: knowledge::mage, might::warrior, trickery::rogue,
-//depravity::cultist. maxHealth is determined by class: mage/cultist/student 20,
-//rogue 30, warrior 40.
 
 class player
 {

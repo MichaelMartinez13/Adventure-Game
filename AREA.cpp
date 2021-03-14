@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "AREA.h"
+#include "PARSER.cpp"
 using std::cout; using std::cin; using std::string; using std::endl;
 
 //Displays description text for the given area. Could be used with a
