@@ -71,9 +71,8 @@ void area::goDirection(eVerb direction)
 }
 
 //Basic constructor for an area.
-area::area(string tag, int X, int Y, string name)
+area::area(int X, int Y, string name)
 {
-    areaTag = tag;
     areaLocationX = X;
     areaLocationY = Y;
     areaMap[X][Y] = this;
