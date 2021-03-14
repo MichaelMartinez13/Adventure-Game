@@ -68,6 +68,8 @@ void area::goDirection(eVerb direction)
         case west:
         areaMap[areaLocationX - 1][areaLocationY]->enterArea();
         break;
+        default:
+        cout << "Something is terribly wrong." << endl;
     }
 }
 
