@@ -51,7 +51,7 @@ std::map<string, eVerb> verbMap = makeVerbMap();
 bool parseInput(vector<string> sentence)
 {
     player* p1 = player::getPlayer();
-    area* currentArea = area::getArea(p1->getPlayerX(), p1->getPlayerY());
+    area* currentArea = area::getCurrentArea();
     for (int i = 0; i < sentence.size();)
     {
         if (sentence[i] == "at" || sentence[i] == "go" || sentence[i] == "the" || 
