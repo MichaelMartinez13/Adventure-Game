@@ -25,19 +25,19 @@ void area::enterArea()
 //Basic coordinate math on the 2D array allows us to determine if a room has exits.
 void area::findExits()
 {
-    if (areaMap[areaLocationX][areaLocationY - 1]->areaTag != "") //is the adjacent area instantiated?
+    if (areaMap[areaLocationX][areaLocationY - 1]->areaName != "") //is the adjacent area instantiated?
     {
         cout << "To the north, there is the " << areaMap[areaLocationX][areaLocationY - 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX][areaLocationY + 1]->areaTag != "")
+    if (areaMap[areaLocationX][areaLocationY + 1]->areaName != "")
     {
         cout << "To the south, there is the " << areaMap[areaLocationX][areaLocationY + 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX + 1][areaLocationY]->areaTag != "")
+    if (areaMap[areaLocationX + 1][areaLocationY]->areaName != "")
     {
         cout << "To the east, there is the " << areaMap[areaLocationX + 1][areaLocationY]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX - 1][areaLocationY]->areaTag != "")
+    if (areaMap[areaLocationX - 1][areaLocationY]->areaName != "")
     {
         cout << "To the west, there is the " << areaMap[areaLocationX - 1][areaLocationY]->areaName << "." << endl;
     }
@@ -80,9 +80,8 @@ area::area(int X, int Y, string name)
 }
 
 //Constructor for areas that don't fit on the map.
-area::area(string tag, string name)
+area::area(string name)
 {
-    areaTag = tag;
     areaName = name;
 }
 
@@ -94,5 +93,5 @@ area* area::getArea(int X, int Y)
 area* area::getCurrentArea()
 {
     player* p1 = player::getPlayer();
-    return areaMap[(p1->getPlayerX()][p1->getPlayerY()];
+    return areaMap[p1->getPlayerX()][p1->getPlayerY()];
 }
