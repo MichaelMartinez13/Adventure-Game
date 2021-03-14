@@ -1,5 +1,7 @@
 //Parser written by JS, 03/12/21.
 
+#ifndef PARSER_CPP
+#define PARSER_CPP
 #include <locale>
 #include <string>
 #include <iostream>
@@ -129,3 +131,4 @@ void userInput()
     }
     while (!successful);
 }
+#endif
