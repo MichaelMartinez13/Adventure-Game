@@ -96,21 +96,20 @@ void userInput()
         getline(cin, input);
         input = lc(input);
         vector<string> sentence;
-        string temp;
+        string temp = "";
         for (int i = 0; i < input.length(); i++)
         {
-            int j = 0;
-            int k = 0;
             if (input[i] != ' ')
             {
-                temp[j] = input[i];
-                j++;
+                temp += input[i];
             }
             else
             {
-                sentence[k] = temp;
-                j = 0;
-                k++;
+                sentence.push_back(temp);
+            }
+            if (i == (input.length() - 1))
+            {
+                sentence.push_back(temp);
             }
         }
         successful = parseInput(sentence);
