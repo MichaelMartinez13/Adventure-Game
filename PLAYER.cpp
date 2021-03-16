@@ -4,6 +4,12 @@
 #include "PLAYER.h"
 using std::cout; using std::cin; using std::string; using std::endl;
 
+//Defining here to avoid linker error.
+player* player::p1;
+
+//Defining here to avoid linker error.
+player::player(){}
+
 //Sets player name. Call upon creation and forget about it.
 void player::setPlayerName(std::string enteredName)
 {
