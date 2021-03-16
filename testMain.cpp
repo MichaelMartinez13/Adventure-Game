@@ -1,17 +1,15 @@
-#include "AREA.h"
-#include "PLAYER.h"
-#include "PARSER.h"
-#include "NEWAREA.h"
+#include "AREA.cpp"
+#include "PLAYER.cpp"
+#include <iostream>
+using std::string;
 
 int main()
 {
-    areaSetup();
-    player* p1 = player::getPlayer();
-    area* startRoom = area::getArea(3, 4);
-    startRoom->enterArea();
-    while (true)
-    {
-        userInput();
-    }
+    area startRoom("startRoom", 3, 4, "Lobby");
+    startRoom.setAreaDescription(
+    "You're standing in the entry hall. There's not much in here\n"
+    "- some candelabras, a rug, a hell of a lot of cobwebs."
+    );
+    startRoom.enterArea();
     return 0;
 }
