@@ -10,30 +10,17 @@ player* player::p1;
 //Defining here to avoid linker error.
 player::player(){}
 
-//Sets player name, sets job to Student. Call upon creation and forget about it.
-void player::setPlayerName()
+//Sets player name. Call upon creation and forget about it.
+void player::setPlayerName(std::string enteredName)
 {
-    string enteredName;
-    cout << "What is your name?" << endl;
-    getline(cin, enteredName);
     playerName = enteredName;
-    setPlayerJob(student);
 }
 
-//Sets player's job and maxHealth. Call upon creation (as student) and when the
-//player picks up their starting weapon.
+//Sets player's job. Call upon creation (value 0 for Student) and when the player picks
+//up their starting weapon.
 void player::setPlayerJob(eJob weapon)
 {
     playerJob = weapon;
-    switch (playerJob)
-    {
-        case student: case mage: case cultist: playerHealth = 20;
-        break;
-        case rogue: playerHealth = 30;
-        break;
-        case warrior: playerHealth = 40;
-        break;
-    }
 }
 
 //Causes HP damage.
