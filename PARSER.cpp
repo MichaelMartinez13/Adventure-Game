@@ -1,12 +1,8 @@
 //Parser written by JS, 03/12/21.
 
-#include <locale>
-#include <string>
-#include <iostream>
-#include <vector>
-#include <map>
-#include "AREA.h"
-#include "PLAYER.h"
+#ifndef PARSER_CPP
+#define PARSER_CPP
+#include "PARSER.h"
 using std::cout; using std::cin; using std::string; using std::endl; using std::vector;
 
 //Converts inputs to lowercase for case-insensitive parsing.
@@ -16,15 +12,6 @@ string lc(string s)
         s[i] = tolower(s[i]);
     return s;
 }
-
-//Enum to store verbs. Will be added to as we add more things to do. Cardinal directions are
-//totally verbs, guys.
-enum eVerb
-{
-    look = 0,
-    north = 1, south = 2, east = 3, west = 4,
-    take = 5
-};
 
 //Creates the verbMap used in the parser proper to parse the strings. Synonyms are
 //defined here.
@@ -37,19 +24,20 @@ std::map<string, eVerb> makeVerbMap()
     verbMap["east"] = east; verbMap["e"] = east;
     verbMap["west"] = west; verbMap["w"] = west;
     verbMap["take"] = take; verbMap["get"] = take; verbMap["pickup"] = take;
+    return verbMap;
 }
 
 //For some reason you have to make a constructor function and then call it, you can't
 //just construct a map out-of-line. C++, why.
 std::map<string, eVerb> verbMap = makeVerbMap();
 
-//The actual main event. Takes words from userInput(), strips out filler words, and tells
+//The main event. Takes words from userInput(), strips out filler words, and tells
 //the system what to do with the words that are left (which should ideally be a single
 //verb and an optional noun). Again, will be added to as we add things to do.
 bool parseInput(vector<string> sentence)
 {
     player* p1 = player::getPlayer();
-    area* currentArea = area::getArea(p1->getPlayerX(), p1->getPlayerY());
+    area* currentArea = area::getCurrentArea();
     for (int i = 0; i < sentence.size();)
     {
         if (sentence[i] == "at" || sentence[i] == "go" || sentence[i] == "the" || 
@@ -108,24 +96,24 @@ void userInput()
         getline(cin, input);
         input = lc(input);
         vector<string> sentence;
-        string temp;
+        string temp = "";
         for (int i = 0; i < input.length(); i++)
         {
-            int j = 0;
-            int k = 0;
             if (input[i] != ' ')
             {
-                temp[j] = input[i];
-                j++;
+                temp += input[i];
             }
             else
             {
-                sentence[k] = temp;
-                j = 0;
-                k++;
+                sentence.push_back(temp);
+            }
+            if (i == (input.length() - 1))
+            {
+                sentence.push_back(temp);
             }
         }
         successful = parseInput(sentence);
     }
     while (!successful);
 }
+#endif

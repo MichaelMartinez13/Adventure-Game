@@ -35,3 +35,6 @@
 *.DS_Store
 *.json
 *.vscode
+*.sqlite
+*.sqlite-journal
+*.suo

@@ -2,11 +2,12 @@
 
 #include <iostream>
 #include "AREA.h"
-#include "PARSER.cpp"
 using std::cout; using std::cin; using std::string; using std::endl;
 
-//Displays description text for the given area. Could be used with a
-//>look command if we end up implementing a parser.
+//Defining here to avoid linker error.
+area* area::areaMap[5][5] = {NULL};
+
+//Displays description text for the given area.
 void area::displayArea()
 {
     cout << areaDescription << endl;
@@ -25,19 +26,19 @@ void area::enterArea()
 //Basic coordinate math on the 2D array allows us to determine if a room has exits.
 void area::findExits()
 {
-    if (areaMap[areaLocationX][areaLocationY - 1]->areaTag != "") //is the adjacent area instantiated?
+    if (areaMap[areaLocationX][areaLocationY - 1]!=NULL) //is the adjacent area instantiated?
     {
         cout << "To the north, there is the " << areaMap[areaLocationX][areaLocationY - 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX][areaLocationY + 1]->areaTag != "")
+    if (areaMap[areaLocationX][areaLocationY + 1]!=NULL)
     {
         cout << "To the south, there is the " << areaMap[areaLocationX][areaLocationY + 1]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX + 1][areaLocationY]->areaTag != "")
+    if (areaMap[areaLocationX + 1][areaLocationY]!=NULL)
     {
         cout << "To the east, there is the " << areaMap[areaLocationX + 1][areaLocationY]->areaName << "." << endl;
     }
-    if (areaMap[areaLocationX - 1][areaLocationY]->areaTag != "")
+    if (areaMap[areaLocationX - 1][areaLocationY]!=NULL)
     {
         cout << "To the west, there is the " << areaMap[areaLocationX - 1][areaLocationY]->areaName << "." << endl;
     }
@@ -67,13 +68,14 @@ void area::goDirection(eVerb direction)
         case west:
         areaMap[areaLocationX - 1][areaLocationY]->enterArea();
         break;
+        default:
+        cout << "Something is terribly wrong." << endl;
     }
 }
 
 //Basic constructor for an area.
-area::area(string tag, int X, int Y, string name)
+area::area(int X, int Y, string name)
 {
-    areaTag = tag;
     areaLocationX = X;
     areaLocationY = Y;
     areaMap[X][Y] = this;
@@ -81,13 +83,18 @@ area::area(string tag, int X, int Y, string name)
 }
 
 //Constructor for areas that don't fit on the map.
-area::area(string tag, string name)
+area::area(string name)
 {
-    areaTag = tag;
     areaName = name;
 }
 
 area* area::getArea(int X, int Y)
 {
     return areaMap[X][Y];
+}
+
+area* area::getCurrentArea()
+{
+    player* p1 = player::getPlayer();
+    return areaMap[p1->getPlayerX()][p1->getPlayerY()];
 }
