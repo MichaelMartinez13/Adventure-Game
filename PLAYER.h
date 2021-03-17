@@ -27,7 +27,7 @@ class player
     static player* getPlayer(); //Use this to point to p1, the player.
     int getPlayerX() {return playerLocationX;} //Gets player's X-coordinates.
     int getPlayerY() {return playerLocationY;} //Gets player's Y-coordinates.
-    void setPlayerName(string); //Sets the player's name.
+    void setPlayerName(); //Sets the player's name.
     void setPlayerJob(eJob); //Sets the player's job when they select their
     //starting weapon.
     void hurtPlayer(int); //Lowers player's health.
